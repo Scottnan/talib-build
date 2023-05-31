@@ -22,7 +22,6 @@ jobs:
     strategy:
       matrix:
         os: [windows-2022]
-        python-version: [3.9]
     env:
       VS_PLATFORM: x64
     steps:
@@ -30,9 +29,6 @@ jobs:
       - uses: microsoft/setup-msbuild@v1.1
         with:
           msbuild-architecture: x64
-      - uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
       - run: build.cmd
         shell: cmd
       - uses: pypa/cibuildwheel@v2.12.3
