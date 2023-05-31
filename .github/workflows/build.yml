@@ -30,6 +30,8 @@ jobs:
       - uses: microsoft/setup-msbuild@v1.1
         with:
           msbuild-architecture: x64
+      - uses: actions/setup-python@v2
+        with:
           python-version: ${{ matrix.python-version }}
       - run: build.cmd
         shell: cmd
